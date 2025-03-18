@@ -13,21 +13,21 @@ while(abs(tol)>rango):
     
     i+=1
     
-    print(i, " -->  ",end="")
-    print(" a: ", a,end=" ")
-    print(" b: ", b,end=" ")
+    print("|",i, " -->  ",end="")
+    print(" |a: ", a,end=" ")
+    print(" |b: ", b,end=" ")
         
     c=(a+b)/2
     
-    print(" c: ", c,end=" ")
+    print(" |c: ", c,end=" ")
     
     fa = pow(a,3)+a-1
     fb= pow(b,3)+b-1
     fc= pow(c,3)+c-1
    
-    print(" f(a): ", fa,end=" ")
-    print(" f(b): ", fb,end=" ")
-    print(" f(c): ", fc,end=" ")
+    print(" |f(a): ", fa,end=" ")
+    print(" |f(b): ", fb,end=" ")
+    print(" |f(c): ", fc,end=" ")
 
     if(fa*fc>0):
         
@@ -38,7 +38,7 @@ while(abs(tol)>rango):
     
     tol = abs(b-a)
     
-    print(" New a: ", a,end=" ")
-    print(" New b: ", b,end=" ")
-    print(" Tolerancia: ", tol)
+    print(" |New a: ", a,end=" ")
+    print(" |New b: ", b,end=" ")
+    print(" |Tolerancia: ", tol)
         
