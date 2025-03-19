@@ -12,7 +12,7 @@ b = 1
 c = 0
 fa = 0
 fb = 0
-rango = 0.005
+rango = 0.0005
 tol=abs(b-a)
 
 while(abs(tol)>rango):
@@ -25,18 +25,18 @@ while(abs(tol)>rango):
     fb= pow(b,3)+b-1
     fc= pow(c,3)+c-1
    
-    data.append(i,a,b,c,fa,fb,fc,a,b,tol)
+    data.append([i,a,b,c,fa,fb,fc,a,b,tol])
    
-   # if(fa*fc>0):
+    if(fa*fc>0):
         
-    #    a=c        
+        a=c        
     
-    #else:
-     #   b=c
+    else:
+        b=c
     
     tol = abs(b-a)
     
 headers = ["I","a","b","c","f(a)","f(b)","f(c)","New a","New b","Tolerance"] 
 
-print(tabulate(data, headers=headers, tablefmt="grid"))   
+print(tabulate(data, headers=headers, tablefmt="rounded_grid"))   
         
