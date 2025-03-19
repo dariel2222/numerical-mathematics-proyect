@@ -10,12 +10,17 @@ i = 0
 a = 0
 b = 1
 c = 0
+new_a=a
+new_b=b
 fa = 0
 fb = 0
 rango = 0.0005
 tol=abs(b-a)
 
 while(abs(tol)>rango):
+    
+    a=new_a
+    b=new_b
     
     i+=1
          
@@ -25,16 +30,17 @@ while(abs(tol)>rango):
     fb= pow(b,3)+b-1
     fc= pow(c,3)+c-1
    
-    data.append([i,a,b,c,fa,fb,fc,a,b,tol])
    
     if(fa*fc>0):
         
-        a=c        
+        new_a=c        
     
     else:
-        b=c
+        new_b=c
     
     tol = abs(b-a)
+    
+    data.append([i,a,b,c,fa,fb,fc,new_a,new_b,tol])
     
 headers = ["I","a","b","c","f(a)","f(b)","f(c)","New a","New b","Tolerance"] 
 
