@@ -4,36 +4,39 @@
 
 from tabulate import tabulate
 
+#Función de f(n)
+
+def fn(n):
+    
+    return pow(n,3)+n-1
+
 #Declaracion de variables y listas
 
 data = []
 headers = ["I","a","b","c","f(a)","f(b)","f(c)","New a","New b","Tolerance"]
 
-i = 0
+i = 1
 a = 0
 b = 1
 c = 0
 new_a=a
 new_b=b
-fa = 0
-fb = 0
 rango = 0.0005
 tol=abs(b-a)
 
 #Bucle para llevar a cabo el algoritmo necesario
 
-while(abs(tol)>rango):
+while True:
     
     a=new_a
     b=new_b
     
-    i+=1
          
     c=(a+b)/2
     
-    fa = pow(a,3)+a-1
-    fb= pow(b,3)+b-1
-    fc= pow(c,3)+c-1
+    fa = fn(a)
+    fb = fn(b) 
+    fc = fn(c)
    
    
     if(fa*fc>0):
@@ -46,6 +49,12 @@ while(abs(tol)>rango):
     tol = abs(b-a)
     
     data.append([i,a,b,c,fa,fb,fc,new_a,new_b,tol])
+    
+    if abs(tol)<rango:
+        
+        break
+    
+    i+=1
     
  
 
