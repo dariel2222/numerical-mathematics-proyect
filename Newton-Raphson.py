@@ -1,31 +1,39 @@
 # Programa que calcula el cero de la función: 3 - X - 2ln(x), aplicando el Método de Newton Raphson
 import math
-
 from tabulate import tabulate
 
-date = []
-header = ["I","Xn","f(Xn)","f'(Xn)","Xn+1"]
+def f(x):
+    return 3 - x - 2 * math.log(x,e)
 
-i=0
+def f_prime(x):
+    return -1 - 2 / x
+
+data = []
+headers = ["I","Xn","f(Xn)","f'(Xn)","Xn+1"]
+
+i=1
 Xn=1.5
-fXn = Xn
-fpXn = 0
-Xnplus = 0
 rango = 0.0005
+e = math.e
 
-while(fXn>rango):
+while True:
+    
+    fXn = f(Xn)
+    
+    fpXn = f_prime(Xn)
+    
+    Xnplus = Xn - fXn / fpXn
+    
+    data.append([i,Xn,fXn,fpXn,Xnplus])
+    
+    if abs(Xnplus-Xn) < rango:
+        break
     
     Xn = Xnplus
     
-    fXn = 3 - 1.5 - 2(math.log(1.5,math.e))
+    i += 1
     
-    fpXn = - 1 - 2 / 1.5
-    
-    Xnplus = Xn-fXn/fpXn
-    
-    date.append([Xn,fXn,fpXn,Xnplusn])
 
 
-    
-    
+print(tabulate(data, headers=headers, tablefmt="rounded_grid"))    
     
