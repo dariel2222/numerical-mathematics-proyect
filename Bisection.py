@@ -1,10 +1,13 @@
 # Programa que calcula el cero de la función: X^3 + X - 1, aplicando el Método de bisección en un rango dado
 
+#inclución de librerias
+
 from tabulate import tabulate
 
-print("Programa que calcula el cero de la función: X^3 + X - 1, aplicando el Método de bisección en un rango dado")
+#Declaracion de variables y listas
 
 data = []
+headers = ["I","a","b","c","f(a)","f(b)","f(c)","New a","New b","Tolerance"]
 
 i = 0
 a = 0
@@ -16,6 +19,8 @@ fa = 0
 fb = 0
 rango = 0.0005
 tol=abs(b-a)
+
+#Bucle para llevar a cabo el algoritmo necesario
 
 while(abs(tol)>rango):
     
@@ -42,7 +47,7 @@ while(abs(tol)>rango):
     
     data.append([i,a,b,c,fa,fb,fc,new_a,new_b,tol])
     
-headers = ["I","a","b","c","f(a)","f(b)","f(c)","New a","New b","Tolerance"] 
+ 
 
 print(tabulate(data, headers=headers, tablefmt="rounded_grid"))   
         
